@@ -12,6 +12,8 @@ function autoNext(id: number, key: string) {
     document.getElementById('1')?.focus()
   } else if (key === "Backspace") {
     document.getElementById(`${id - 1}`)?.focus()
+  } else if (id === 4) {
+    document.getElementById('4')?.blur()
   }
 
   const focusedElement = document.getElementById(`${id}`) as HTMLInputElement
@@ -57,12 +59,7 @@ export default function Home() {
               <input type="number" className='input-otp' name='otp' id='1' onKeyUp={(event) => autoNext(1, event.key)}/>
               <input type="number" className='input-otp' name='otp' id='2' onKeyUp={(event) => autoNext(2, event.key)}/>
               <input type="number" className='input-otp' name='otp' id='3' onKeyUp={(event) => autoNext(3, event.key)}/>
-              <input type="number" className='input-otp' name='otp' id='4' onKeyUp={(event) => {
-                if (event.key === "Backspace") {
-                  document.getElementById('3')?.focus()
-                }
-                document.getElementById('4')?.blur()
-              }}/>
+              <input type="number" className='input-otp' name='otp' id='4' onKeyUp={(event) => autoNext(4, event.key)/>
             </div>
             <button className='h-12 w-80 border-[none] rounded-[100px] bg-[linear-gradient(to_right,_#1E90FF,_#990099)] text-[white] text-md cursor-pointer justify-self-center mb-7 '>Verify</button>
             <Link href='#' className='text-sm font-semibold text-[#1E90FF] mb-20 '>Try Another Way</Link>
